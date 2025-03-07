@@ -7,10 +7,13 @@ form.addEventListener('submit', clickSubmit);
 function fullForm(event) {
   const email = form.querySelector('input[name="email"]').value.trim();
   const message = form.querySelector('textarea[name="message"]').value.trim();
-  const formData = { email, message };
+
+  formData.email = email;
+  formData.message = message;
+
   localStorage.setItem('feedback-form-state', JSON.stringify(formData));
 }
-function clickSubmit(click) {
+function clickSubmit(event) {
   event.preventDefault();
   const email = form.querySelector('input[name="email"]').value.trim();
   const message = form.querySelector('textarea[name="message"]').value.trim();
